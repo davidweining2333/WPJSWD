@@ -3,9 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>do something meaningful</title>
-    <script src="./c.FxJzG50F.js"></script>
+    <script>
+        var scope = {},
+            storageScope = {},
+            initName = "";
+        // scope.name = "1";
+        Object.defineProperty(scope,"name",{
+            set(value) {
+                // storageScope.name = value;
+                // // this.name
+                // bind.children[0].innerText = storageScope.name;
+                bind.children[0].innerText = value;
+            },
+            get() {
+                // if (storageScope.name) {
+                //     return storageScope.name;
+                // } else {
+                //     storageScope.name = initName;
+                //     return storageScope.name;
+                // }
+                return initName;
+
+            }
+        });
+
+
+        window.onload = function (argument) {
+            // alert(scope.name)
+            // document.getElemen
+            bind.children[0].innerText = scope.name;
+
+            input.addEventListener("keyup", function () {
+                // alert(this.value)
+                scope.name = this.value;
+            });
+        }
+    </script>
 </head>
 <body>
-    
+    <input id="input" type="text">
+    <div id="bind"><span></span></div>
 </body>
 </html>
